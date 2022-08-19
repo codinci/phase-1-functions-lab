@@ -1,20 +1,18 @@
 // Code your solution in this file!
-function distanceFromHqInBlocks(blocks) {
-    return Math.abs(blocks - 42);
+function distanceFromHqInBlocks(blocks, hq = 42) {
+    return Math.abs(blocks - hq);
 }
 
-function distanceFromHqInFeet(feet) {
-    const blocks = feet;
-    return distanceFromHqInBlocks(blocks) * 264;
+function distanceFromHqInFeet(feet, otherValue = 42) {
+    return distanceFromHqInBlocks(feet, otherValue) * 264;
 }
 
 function distanceTravelledInFeet(start, destination) {
-    let distanceTravelled = Math.abs(destination - start);
-    return distanceTravelled * 264;
+    return distanceFromHqInFeet(start, destination);
 }
 
 function calculatesFarePrice(start, destination) {
-    let distanceInFeet = distanceTravelledInFeet(start, destination);
+    const distanceInFeet = distanceTravelledInFeet(start, destination);
     if(distanceInFeet < 400) {
         return 0;
     } else if(distanceInFeet > 400 && distanceInFeet < 2000) {
